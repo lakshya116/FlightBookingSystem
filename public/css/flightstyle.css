@@ -1,0 +1,32 @@
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+    justify-content: space-between;
+    align-self: center;
+    /* width:80%; */
+  }
+  .card{
+    align-self: center;
+    margin: auto;
+    margin-top: 40px;
+    width:8rem
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+  .departuretime{
+    /* background-color: aqua; */
+    color:red;
+    font-size: 10px;
+  }
+  .frm{
+    display: flex;
+    flex-wrap: 1wrap;
+  }
+  input{
+    border:0px ;
+  }

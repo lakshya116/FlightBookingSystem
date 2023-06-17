@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    {{!-- <link rel="stylesheet" href="style.css"> --}}
+      <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/flightstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	{{!-- <script src="index.js"></script> --}}
+    {{>adminnav}}
+    {{#each result}}
+  <div class="card center text-center" style="width: 50%;">
+<p>Departing Location : {{this.DepartureLocation}}</p>
+<p>Arrival Location : {{this.ArrivalLocation}}</p>
+<p>Departing Time : {{this.DepartureDate}}</p>
+<p>Arrival Time : {{this.ArrivalDate}}</p>
+
+{{this}}
+     
+</div>
+  {{/each}}
+  </body>
+</html>

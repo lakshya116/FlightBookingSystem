@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/flightstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+     function responder(id) {
+           console.log(id);
+           const myArray = id.split(",");
+axios.post('/bk', {
+    id:myArray[0],
+    price:myArray[1]
+  })
+  {{!-- axios.get('/booking') --}}
+  window.location='/booking'
+        }
+  </script>
+  </head>
+  <body>
+	{{!-- <script src="index.js"></script> --}}
+    {{>navbar}}
+     {{#each result}}
+  <div class="card center text-center" style="width: 80%;">
+<p>Departing Location : {{this.DepartureLocation}}</p>
+<p>Arrival Location : {{this.ArrivalLocation}}</p>
+<p>Departing Time : {{this.DepartureDate}}</p>
+<p>Arrival Time : {{this.ArrivalDate}}</p>
+
+{{!-- </div> --}}
+{{!-- {{this}} --}}
+console.log(this);
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">View More</button>
+  <div id="demo" class="collapse">
+<div style="display: flex;justify-content: space-around;"><p >Seat Type</p><p>   Seats</p><p>Price</p><p>Book Now</p></div>
+<div style="display: flex;justify-content: space-around;"><p >Business Class</p><p>{{this.BusinessSeats}}</p><p>{{this.BusinessSeatPrice}}</p><a><button onclick="responder('{{this.id}},{{this.BusinessSeatPrice}}')">Book Now</button></a></div>
+<div style="display: flex;justify-content: space-around;"><p >Economy Class</p><p>{{this.FirstClassSeats}}</p><p>{{this.FirstClassSeatPrice}}</p><a><button onclick="responder('{{this.id}},{{this.FirstClassSeatPrice}}')">Book Now</button></a></div>
+  </div>
+</div>
+  {{/each}}
+
+  </body>
+</html>
